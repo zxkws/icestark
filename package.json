@@ -6,14 +6,13 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "setup": "rm -rf node_modules && rm -rf ./packages/*/node_modules && pnpm i --registry=https://registry.npmmirror.com && npm run build",
-    "build": "pnpm run clean && pnpm -r --filter ./packages run build",
-    "watch": "pnpm -r --filter ./packages --parallel run watch",
+    "build": "pnpm run clean && pnpm -r build",
+    "watch": "pnpm -r watch",
     "clean": "rimraf packages/*/lib",
     "publish:packages": "ts-node ./scripts/publish.ts",
     "publish:beta": "ts-node ./scripts/beta.ts",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx ./",
-    "test": "NODE_ENV=unittest jest",
-    "coverage": "codecov"
+    "test": "NODE_ENV=unittest jest"
   },
   "license": "MIT",
   "bugs": {

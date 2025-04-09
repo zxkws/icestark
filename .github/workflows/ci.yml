@@ -28,14 +28,11 @@ jobs:
     - name: Install pnpm
       uses: pnpm/action-setup@v2
       with:
-        version: 6
+        version: 8
 
     - run: pnpm run setup
     - run: pnpm run lint
     - run: pnpm run test
-    - run: pnpm run coverage
-      env:
-        CI: true
     - run: pnpm run publish:packages
       env:
         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
